@@ -1,10 +1,9 @@
 /*
  ============================================================================
- Name        : TP_1.c
- Author      : Lucas De Nardo
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+Nombre del alumno: De Nardo Lucas
+División 1°F
+
+Tp n°1
  ============================================================================
  */
 
