@@ -20,9 +20,9 @@ Tp n°1
 
 int main(void) {
 
-	float kilometros= 0;
-	float precioAerolineas=0;
-	float precioLatam=0;
+	float kilometros;
+	float precioAerolineas;
+	float precioLatam;
 	int opcion;
 	char respuesta;
 	float precioDebitoLatam;
@@ -34,12 +34,12 @@ int main(void) {
 	float precioPorKmLatam;
 	float precioPorKmAerolineas;
 	float diferenciaPrecios;
-	int flagKilometros=0;
-	int flagIngresoPreciosLatam=0;
-	int flagIngresoPreciosAerolineas=0;
-	int flagReset = 0;
-	int flagPreciosCalculadosLatam = 0;
-	int flagPreciosCalculadosAerolineas= 0;
+	int flagKilometros;
+	int flagIngresoPreciosLatam;
+	int flagIngresoPreciosAerolineas;
+	int flagReset = 1;
+	int flagPreciosCalculadosLatam;
+	int flagPreciosCalculadosAerolineas;
 
 
 	setbuf(stdout, NULL);
@@ -68,8 +68,6 @@ int main(void) {
 		printf("4. Informar Resultados\n");
 		printf("5. Carga forzada de datos\n");
 		printf("6. Salir\n");
-
-
 
 		opcion = tomarEntero("\nElija una opcion: ", "ERROR Ingrese una opcion valida", "Agoto el numero de intentos\n\nEl programa se cerrara\n\n", 1, 6, 3);
 
@@ -110,16 +108,24 @@ int main(void) {
 								if (precioAerolineas > 0)
 								{
 									flagIngresoPreciosAerolineas=1;
+									flagPreciosCalculadosAerolineas = 0;
 								}
-								flagPreciosCalculadosAerolineas = 0;
+								else
+								{
+									flagIngresoPreciosAerolineas=0;
+								}
 								break;
 							case 2:
 								precioLatam = tomarFlotante("\nIngrese el precio de Latam: $","\nERROR Ingrese un precio valido(Entre 0 y 3M): ", "Agoto el numero de intentos\n\nReiniciando Menu De Precios...\n\n", 1, 3000000, 3);
 								if (precioLatam > 0)
 								{
 									flagIngresoPreciosLatam=1;
+									flagPreciosCalculadosLatam = 0;
 								}
-								flagPreciosCalculadosLatam = 0;
+								else
+								{
+									flagIngresoPreciosLatam=0;
+								}
 								break;
 							case 3:
 								if(flagIngresoPreciosAerolineas == 0 && flagIngresoPreciosLatam == 0)
