@@ -57,7 +57,7 @@ char tomarLetraMinuscula(void)
  * @param min Establecemos el mínimo número a ingresar.
  * @param max Establecemos el máximo número a ingresar.
  * @param intentos Establecemos una cantidad de intentos máxima para el usuario.
- * @return Devuelve un número flotante dentro de los parametros indicados.
+ * @return Devuelve un número flotante dentro de los parametros indicados o cero en caso de agotar los intenetos.
  */
 float tomarFlotante (char mensaje[], char mensajeError[], char mensajeSinReintentos[], float min, float max, int intentos)
 {
@@ -104,7 +104,7 @@ float tomarFlotante (char mensaje[], char mensajeError[], char mensajeSinReinten
  * @param min Establecemos el mínimo número a ingresar.
  * @param max Establecemos el máximo número a ingresar.
  * @param intentos Establecemos una cantidad de intentos máxima para el usuario.
- * @return Devuelve un número entero dentro de los parametros indicados.
+ * @return Devuelve un número entero dentro de los parametros indicados o cero en caso de agotar los intenetos.
  */
 int tomarEntero (char mensaje[], char mensajeError[], char mensajeSinReintentos[], int min, int max, int intentos)
 {
