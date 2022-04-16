@@ -63,7 +63,7 @@ int main(void) {
 		system("cls");
 		printf("*****************************MENU PRINCIPAL*****************************\n\n");
 		printf("1. Ingresar Kil%cmetros (km = %.1f)\n", 162, kilometros);
-		printf("2. Ingresar precio de vuelos (Aerol%cneas = $%.2f y Latam = $%.2f)\n", 162, precioAerolineas, precioLatam);
+		printf("2. Ingresar precio de vuelos (Aerol%cneas = $%.2f y Latam = $%.2f)\n", 161, precioAerolineas, precioLatam);
 		printf("3. Calcular los costos\n");
 		printf("4. Informar Resultados\n");
 		printf("5. Carga forzada de datos\n");
