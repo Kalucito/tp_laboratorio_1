@@ -95,9 +95,9 @@ int addPassengers(ePassenger* pasajeros, int len, int id, char name[], char last
 	{
 
 
-		if(tomarString(nameAux, LEN_NAME, "\nIngrese su nombre/s: ", "\nERROR. Ingrese un nombre v%clido\n", 3) == 0)
+		if(tomarString(nameAux, LEN_NAME, "\nIngrese su nombre/s: ", "\nERROR. Ingrese un nombre valido\n", 3) == 0)
 		{
-			if (tomarString(lastNameAux, LEN_NAME, "\nIngrese su apellido/s: ", "\nERROR. Ingrese un nombre v%clido\n", 3) == 0)
+			if (tomarString(lastNameAux, LEN_NAME, "\nIngrese su apellido/s: ", "\nERROR. Ingrese un apellido valido\n", 3) == 0)
 			{
 				listarTipos(listaTipos, lenTipos);
 				if(tomarEntero(&typePassengersAux, "\nIngrese el id del tipo de pasajero que desea: ", "\nERROR. Id no valido.\n", 0, 2, 3) == 0)
@@ -107,7 +107,7 @@ int addPassengers(ePassenger* pasajeros, int len, int id, char name[], char last
 					{
 						if(tomarFlotante(&priceAux, "\nIngrese el precio del vuelo: ", "\nERROR. Precio no valido(1-500000)\n", 1, 500000, 3) == 0)
 						{
-							if(validarFlycode(flycodeAux, 10, "\nIngrese el codigo de vuelo : ", "\nERROR. Codigo no valido(0-10 caracteres/solo letras y numeros)\n", 3) != 0)
+							if(validarFlycode(flycodeAux, 10, "\nIngrese el codigo de vuelo : ", "\nERROR. Codigo no valido(0-10 caracteres/solo letras y numeros)\n", 3) == 0)
 							{
 								flag = 0;
 							}
@@ -117,7 +117,7 @@ int addPassengers(ePassenger* pasajeros, int len, int id, char name[], char last
 			}
 		}
 
-		if(flag == 1)
+		if(flag == 0)
 		{
 			id = incrementarPasajerosId();
 			pasajeros[indice].idPassenger = id;

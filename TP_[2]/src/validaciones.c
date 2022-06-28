@@ -90,6 +90,7 @@ static int esNumerica (char* cadena)
 		}
 	}
 
+
 	return ret;
 }
 /**
@@ -103,6 +104,7 @@ static int esFlotante (char* cadena)
 	int i = 0;
 	int ret = 1;
 	int flag = 0;
+
 
 	if(cadena != NULL && strlen(cadena) > 0)
 	{
@@ -137,7 +139,7 @@ static int getFloat (float* pResultado)
 	int ret = -1;
 	char numero[64];
 
-	if(getString(numero, sizeof(numero)) == 0 && esFlotante(numero))
+	if(getString(numero, sizeof(numero)) == 0 && esFlotante(numero)&& strnlen(numero,sizeof(numero)) > 0)
 	{
 		*pResultado = atof(numero);
 		ret = 0;
@@ -191,7 +193,7 @@ static int getInt (int* pResultado)
 	int ret = -1;
 	char numero[64];
 
-	if(getString(numero, sizeof(numero)) == 0 && esNumerica(numero))
+	if(getString(numero, sizeof(numero)) == 0 && esNumerica(numero) && strnlen(numero,sizeof(numero)) > 0)
 	{
 		*pResultado = atoi(numero);
 		ret = 0;
@@ -251,10 +253,10 @@ static int esNombre(char* cadena,int longitud)
 	{
 		for(i=0 ; cadena[i] != '\0' && i < longitud; i++)
 		{
-			if((cadena[i] < 'A' || cadena[i] > 'Z' ) && (cadena[i] < 'a' || cadena[i] > 'z' ) && (cadena[i] != ' '))
+			if(((cadena[i] < 'A' || cadena[i] > 'Z' ) && (cadena[i] < 'a' || cadena[i] > 'z' ) && (cadena[i] != ' ') )|| (cadena[i] == ' ' && cadena[i+1] == ' '))
 			{
-				retorno = 0;
-				break;
+					retorno = 0;
+					break;
 			}
 		}
 	}
@@ -276,7 +278,7 @@ static int esFlycode(char* cadena,int longitud)
 	{
 		for(i=0 ; cadena[i] != '\0' && i < longitud; i++)
 		{
-			if((cadena[i] < 'A' || cadena[i] > 'Z' ) && (cadena[i] < 'a' || cadena[i] > 'z' ) && (cadena[i] != ' ') && (cadena[i] < '0' || cadena[i] > '9'))
+			if((cadena[i] < 'A' || cadena[i] > 'Z' ) && (cadena[i] < 'a' || cadena[i] > 'z' ) && (cadena[i] < '0' || cadena[i] > '9'))
 			{
 				retorno = 0;
 				break;
@@ -325,7 +327,7 @@ int tomarString(char* pResultado, int tamanio,char* mensaje, char* mensajeError,
 	{
 		reintentos--;
 		printf("%s",mensaje);
-		if(getNombre(bufferString,sizeof(bufferString)) == 0 && strnlen(bufferString,sizeof(bufferString)) < tamanio )
+		if(getNombre(bufferString,sizeof(bufferString)) == 0 && strnlen(bufferString,sizeof(bufferString)) < tamanio && strnlen(bufferString,sizeof(bufferString)) > 0)
 		{
 			strncpy(pResultado,bufferString,tamanio);
 			retorno = 0;
@@ -349,7 +351,7 @@ static int getFlycode(char* pResultado, int longitud)
 
     if(pResultado != NULL)
     {
-    	if(getString(buffer,sizeof(buffer))==0 && esFlycode(buffer,sizeof(buffer)) && strnlen(buffer,sizeof(buffer))<=longitud)
+    	if(getString(buffer,sizeof(buffer))==0 && esFlycode(buffer,sizeof(buffer)) && strnlen(buffer,sizeof(buffer))<=longitud && strnlen(buffer,sizeof(buffer)) > 0)
     	{
     		strncpy(pResultado,buffer,longitud);
 			retorno = 0;
