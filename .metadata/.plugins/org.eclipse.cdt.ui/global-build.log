@@ -1,2 +1,9 @@
 Info: Nothing to build for TP_[2]
 Info: Nothing to build for TP_[2]
+Info: Nothing to build for TP_[2]
+Info: Nothing to build for TP_[2]
+13:47:25 **** Incremental Build of configuration Debug for project TP_[2] ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\validaciones.o" "..\\src\\validaciones.c" 
+gcc -o TP_[2].exe "src\\ArrayPassenger.o" "src\\eStatusFlight.o" "src\\eTipoDePasajero.o" "src\\tp2.o" "src\\validaciones.o" 
+Info: Nothing to build for TP_[2]
